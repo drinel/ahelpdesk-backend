@@ -52,6 +52,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		String username = ((UserSS) auth.getPrincipal()).getUsername();
 		String token = jwtUtil.generateToken(username);
 		response.setHeader("Access-Control-Allow-Origin", "*");
+		response.setHeader("Access-Control-Expose-Headers", "Authorization");
         	response.setHeader("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
         	response.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type, enctype, Location");
         	response.setHeader("Authorization", "Bearer " + token);
